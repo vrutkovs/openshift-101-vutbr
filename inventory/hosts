@@ -9,9 +9,9 @@ pc02 ansible_host=147.229.13.62
 pc03 ansible_host=147.229.13.63
 
 [nodes]
-pc01 ansible_host=147.229.13.61
-pc02 ansible_host=147.229.13.62
-pc03 ansible_host=147.229.13.63
+pc01 ansible_host=147.229.13.61 openshift_node_group_name=node-config-master
+pc02 ansible_host=147.229.13.62 openshift_node_group_name=node-config-master
+pc03 ansible_host=147.229.13.63 openshift_node_group_name=node-config-master
 
 [OSEv3:children]
 masters
