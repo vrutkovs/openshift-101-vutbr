@@ -17,9 +17,6 @@ openshift_master_htpasswd_users:
 # Machines don't have sufficient RAM - skip this check
 openshift_disable_check: memory_availability
 
-# Install examples
-openshift_install_examples: true
-
 # Enable firewalld
 os_firewall_enabled: true
 os_firewall_use_firewalld: true
