@@ -10,6 +10,9 @@ openshift_master_identity_providers:
   challenge: true
   login: true
   kind: HTPasswdPasswordIdentityProvider
+# Prehashed version of 'redhat' password, see http://www.htaccesstools.com/htpasswd-generator/
+openshift_master_htpasswd_users:
+  admin: '$apr1$jdI7FA/q$q.1ym4Pno9IAsD19Dcq.n0'
 
 # Masters should act as infra nodes and workers
 openshift_node_groups:
@@ -41,14 +44,12 @@ openshift_node_groups:
       value:
         - 'cpu=100m'
 
-
 # Machines don't have sufficient RAM - skip this check
 #openshift_disable_check: memory_availability,docker_image_availability
 openshift_disable_check: memory_availability
 
 # Install examples
 openshift_install_examples: true
-
 
 # Enable firewalld
 os_firewall_enabled: true
