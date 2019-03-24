@@ -55,14 +55,11 @@ openshift_install_examples: true
 os_firewall_enabled: true
 os_firewall_use_firewalld: true
 
-# Consoles
-openshift_web_console_install: true
 # Use custom subdomain
 openshift_hosted_router_force_subdomain: 147.229.13.61.xip.io
 
-# Disable extra services
-openshift_cluster_monitoring_operator_install: false
-openshift_console_install: false
-openshift_hosted_manage_registry_console: false
-openshift_hosted_grafana_deploy: false
-openshift_hosted_prometheus_deploy: false
+# Install new console
+openshift_console_install: true
+
+# Install monitoring
+openshift_cluster_monitoring_operator_install: true
