@@ -45,7 +45,6 @@ openshift_node_groups:
         - 'cpu=100m'
 
 # Machines don't have sufficient RAM - skip this check
-#openshift_disable_check: memory_availability,docker_image_availability
 openshift_disable_check: memory_availability
 
 # Install examples
@@ -57,9 +56,3 @@ os_firewall_use_firewalld: true
 
 # Use custom subdomain
 openshift_hosted_router_force_subdomain: 147.229.13.61.xip.io
-
-# Install new console
-openshift_console_install: true
-
-# Install monitoring
-openshift_cluster_monitoring_operator_install: true
