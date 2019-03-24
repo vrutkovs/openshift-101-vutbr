@@ -57,6 +57,8 @@ os_firewall_use_firewalld: true
 
 # Consoles
 openshift_web_console_install: true
+# Use custom subdomain
+openshift_hosted_router_force_subdomain: 147.229.13.61.xip.io
 
 # Disable extra services
 openshift_cluster_monitoring_operator_install: false
