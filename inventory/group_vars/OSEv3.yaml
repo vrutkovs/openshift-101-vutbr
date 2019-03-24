@@ -1,0 +1,65 @@
+# Use root to login
+ansible_user: root
+
+# Deploy Origin - upstream version
+deployment_type: origin
+
+# Use password-based authentication
+openshift_master_identity_providers:
+- name: htpasswd_provider
+  challenge: true
+  login: true
+  kind: HTPasswdPasswordIdentityProvider
+
+# Masters should act as infra nodes and workers
+openshift_node_groups:
+- name: node-config-master
+  labels:
+    - 'node-role.kubernetes.io/master=true'
+    - 'node-role.kubernetes.io/infra=true'
+    - 'node-role.kubernetes.io/compute=true'
+  edits:
+    - key: kubeletArguments.feature-gates
+      value:
+        - RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true,PersistentLocalVolumes=true
+    - key: kubeletArguments.max-pods
+      value:
+        - '250'
+    - key: kubeletArguments.image-gc-high-threshold
+      value:
+        - '90'
+    - key: kubeletArguments.image-gc-low-threshold
+      value:
+        - '50'
+    - key: kubeletArguments.minimum-container-ttl-duration
+      value:
+        - '10m'
+    - key: kubeletArguments.maximum-dead-containers
+      value:
+        - '50'
+    - key: kubeletArguments.kube-reserved
+      value:
+        - 'cpu=100m'
+
+
+# Machines don't have sufficient RAM - skip this check
+#openshift_disable_check: memory_availability,docker_image_availability
+openshift_disable_check: memory_availability
+
+# Install examples
+openshift_install_examples: true
+
+
+# Enable firewalld
+os_firewall_enabled: true
+os_firewall_use_firewalld: true
+
+# Consoles
+openshift_web_console_install: true
+openshift_cluster_monitoring_operator_install: true
+openshift_console_install: true
+
+# Disable extra services
+openshift_hosted_manage_registry_console: false
+openshift_hosted_grafana_deploy: false
+openshift_hosted_prometheus_deploy: false

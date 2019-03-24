@@ -1,0 +1,19 @@
+[masters]
+pc01 ansible_host=147.229.13.61
+pc02 ansible_host=147.229.13.62
+pc03 ansible_host=147.229.13.63
+
+[etcd]
+pc01 ansible_host=147.229.13.61
+pc02 ansible_host=147.229.13.62
+pc03 ansible_host=147.229.13.63
+
+[nodes]
+pc01 ansible_host=147.229.13.61
+pc02 ansible_host=147.229.13.62
+pc03 ansible_host=147.229.13.63
+
+[OSEv3:children]
+masters
+nodes
+etcd
