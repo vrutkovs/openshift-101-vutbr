@@ -57,10 +57,10 @@ os_firewall_use_firewalld: true
 
 # Consoles
 openshift_web_console_install: true
-openshift_cluster_monitoring_operator_install: true
-openshift_console_install: true
 
 # Disable extra services
+openshift_cluster_monitoring_operator_install: false
+openshift_console_install: false
 openshift_hosted_manage_registry_console: false
 openshift_hosted_grafana_deploy: false
 openshift_hosted_prometheus_deploy: false
