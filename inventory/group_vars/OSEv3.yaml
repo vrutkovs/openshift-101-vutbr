@@ -22,7 +22,7 @@ os_firewall_enabled: true
 os_firewall_use_firewalld: true
 
 # Use custom subdomain
-openshift_hosted_router_force_subdomain: 147.229.13.61.xip.io
+openshift_master_default_subdomain: 147.229.13.61.xip.io
 
 # Masters should act as infra nodes and workers
 openshift_node_groups:
